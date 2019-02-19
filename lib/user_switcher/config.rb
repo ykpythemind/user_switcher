@@ -13,9 +13,17 @@ module UserSwitcher
     attr_accessor :login_url, :login_procedure
 
     def initialize
-      @login_url = "/_user_switcher/login"
+      @login_url = "/user_switcher/login"
       @users = load_users
-      @login_procedure = nil
+      @login_procedure = default_login_procedure
+    end
+
+    def default_login_procedure
+      proc do
+        puts params
+
+        redirect_to main_app.root_path
+      end
     end
 
     def load_users
