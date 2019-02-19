@@ -9,9 +9,9 @@ Gem::Specification.new do |spec|
   spec.version     = UserSwitcher::VERSION
   spec.authors     = ["Yukito Ito"]
   spec.email       = ["yukibukiyou@gmail.com"]
-  spec.homepage    = "TODO"
-  spec.summary     = "TODO: Summary of UserSwitcher."
-  spec.description = "TODO: Description of UserSwitcher."
+  spec.homepage    = ""
+  spec.summary     = "Summary of UserSwitcher."
+  spec.description = "Description of UserSwitcher."
   spec.license     = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
@@ -27,5 +27,5 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "rails", "~> 5.2.2"
 
-  spec.add_development_dependency "sqlite3"
+  spec.add_development_dependency "sqlite3", "~> 1.3.6"
 end
