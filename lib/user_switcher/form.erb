@@ -1,0 +1,14 @@
+<form method="post" action="<%= UserSwitcher.config.login_url %>">
+  <select name="user">
+    <% UserSwitcher.config.users.each do |user| %>
+      <option value="<%= user.id %>"><%= "#{user.id}" %></option>
+    <% end %>
+  </select>
+
+  <% UserSwitcher.config.users.each do |user| %>
+    <input type="hidden" name="users[][id]" value="<%= user.id %>">
+    <input type="hidden" name="users[][password]" value="<%= user.password %>">
+  <% end %>
+
+  <p><input type="submit" value="送信する"></p>
+</form>

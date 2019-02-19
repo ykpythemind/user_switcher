@@ -1,6 +1,6 @@
+require "user_switcher/config"
 require "user_switcher/rack"
-require "user_switcher/railtie"
 
-module UserSwitcher
-  # Your code goes here...
+if defined?(Rails)
+  require "user_switcher/railtie"
 end

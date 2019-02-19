@@ -2,7 +2,6 @@ PATH
   remote: .
   specs:
     user_switcher (0.1.0)
-      rails (~> 5.2.2)
 
 GEM
   remote: https://rubygems.org/
@@ -120,6 +119,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  rails (~> 5.2.2)
   sqlite3 (~> 1.3.6)
   user_switcher!
 
