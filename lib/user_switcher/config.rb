@@ -34,7 +34,7 @@ module UserSwitcher
         logout
         login(params[:email], params[:password])
 
-        redirect_to main_app.root_path
+        redirect_back fallback_location: main_app.root_path
       end
     end
 
