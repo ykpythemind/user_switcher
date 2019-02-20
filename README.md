@@ -2,7 +2,17 @@
 Short description and motivation.
 
 ## Usage
-How to use my plugin.
+
+config/initializers/user_switcher.rb
+
+```
+UserSwitcher.configure do |config|
+  config.users = [
+    { id: 'ykpythemind@example.com', password: 'password' },
+    { id: 'mckaoru@example.com', password: 'password' }
+  ]
+end
+```
 
 ## Installation
 Add this line to your application's Gemfile:
