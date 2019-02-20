@@ -1,3 +1,3 @@
 UserSwitcher::Engine.routes.draw do
-  post "login", to: "users#login"
+  post "login", to: "user_sessions#create"
 end

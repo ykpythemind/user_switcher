@@ -29,4 +29,5 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "rails", "~> 5.2.2"
   spec.add_development_dependency "sqlite3", "~> 1.3.6"
+  spec.add_development_dependency "sorcery", "~> 0.13"
 end

@@ -21,7 +21,8 @@ module UserSwitcher
     def default_login_procedure
       proc do
         # You can use params[:email] & params[:password] for login
-        puts params
+        logout
+        login(params[:email], params[:password])
 
         redirect_to main_app.root_path
       end

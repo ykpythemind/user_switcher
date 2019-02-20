@@ -1,5 +1,12 @@
 <h1>Hello, world</h1>
 
+<div>
+  <% if current_user %>
+    You are logged in as <%= current_user.email %>.
+  <% else %>
+    you are not logged in.
+  <% end %>
+</div>
 
 <div>
   Dolor velit aliquam dolor laboriosam ipsam dicta ut! Impedit beatae sit minus blanditiis cupiditate. Placeat inventore neque aperiam eligendi fugiat Accusamus laborum ut rem laudantium voluptas. Dolore id voluptatem error?
