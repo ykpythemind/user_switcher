@@ -14,16 +14,17 @@ module UserSwitcher
   end
 
   class Config
-    attr_accessor :login_url, :login_procedure, :enabled
+    attr_accessor :login_url, :login_procedure, :enabled, :routes_prefix
 
     def initialize
       @login_url = "/user_switcher/login"
       @users = load_users_from_file
       @login_procedure = default_login_procedure
+      @routes_prefix = "user_switcher"
       @enabled = if defined?(Rails)
                    Rails.env.development?
                  else
-                   true
+                   false
                  end
     end
 

@@ -14,12 +14,6 @@ UserSwitcher.configure do |config|
 end
 ```
 
-config/routes.rb
-
-```
-  mount UserSwitcher::Engine => "/user_switcher"
-```
-
 ## Installation
 Add this line to your application's Gemfile:
 
