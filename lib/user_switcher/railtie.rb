@@ -1,5 +1,7 @@
 module UserSwitcher
   def self.initialize!(app)
+    return if !UserSwitcher.enabled?
+
     app.middleware.insert(-1, UserSwitcher::Middlewares::SwitcherInserter, UserSwitcher.config.to_middleware_config)
   end
 
