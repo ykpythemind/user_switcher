@@ -14,7 +14,7 @@ module UserSwitcher
 
     def initialize
       @login_url = "/user_switcher/login"
-      @users = load_users
+      @users = load_users_from_file
       @login_procedure = default_login_procedure
     end
 
@@ -27,8 +27,8 @@ module UserSwitcher
       end
     end
 
-    def load_users
-      # do something
+    def load_users_from_file
+      #
       []
     end
 
@@ -38,6 +38,10 @@ module UserSwitcher
 
     def users=(users)
       @users += users.map { |user| User.new(user) }
+    end
+
+    def to_middleware_config
+      { users: users, login_url: login_url }
     end
   end
 

@@ -1,11 +1,11 @@
-<form method="post" action="<%= UserSwitcher.config.login_url %>">
+<form method="post" action="<%= login_url %>">
   <select name="user_id">
-    <% UserSwitcher.config.users.each do |user| %>
+    <% users.each do |user| %>
       <option value="<%= user.id %>"><%= "#{user.id}" %></option>
     <% end %>
   </select>
 
-  <% UserSwitcher.config.users.each do |user| %>
+  <% users.each do |user| %>
     <input type="hidden" name="users[][id]" value="<%= user.id %>">
     <input type="hidden" name="users[][password]" value="<%= user.password %>">
   <% end %>
