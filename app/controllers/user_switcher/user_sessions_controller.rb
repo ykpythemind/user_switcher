@@ -4,6 +4,7 @@ module UserSwitcher
     if defined?(Sorcery)
       skip_before_action :require_login, raise: false
     end
+
     before_action :prepare_login_params
 
     def create
@@ -13,7 +14,7 @@ module UserSwitcher
     private
 
     def prepare_login_params
-      user_param = params[:users].find { |param| param[:id] == params[:user_id] }
+      user_param = (params[:users] || [{}]).find { |user| user[:id] == params[:user_id] }
       return if user_param.blank?
 
       params[:id] = user_param[:id]

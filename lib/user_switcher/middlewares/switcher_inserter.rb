@@ -9,7 +9,6 @@ module UserSwitcher::Middlewares
 
       @users = config[:users] || []
       @login_url = config[:login_url]
-      @form_erb = config[:form_erb] || load_form_erb
     end
 
     def call(env)
@@ -25,10 +24,10 @@ module UserSwitcher::Middlewares
         when Array
           body = body[0]
         end
-
         body = body.dup if body.frozen?
+
         new_body = insert_form(body)
-        new_body = insert_style(new_body)
+        new_body = insert_inner_head(new_body)
         headers['Content-Length'] &&= new_body.bytesize.to_s
 
         [status, headers, [new_body]]
@@ -43,20 +42,24 @@ module UserSwitcher::Middlewares
       html.gsub %r{<body(.*?)>(.*)<\/body>}mi, '<body\1>' + form + '\2</body>'
     end
 
-    def insert_style(html)
-      html.sub %r{<head(.*?)>(.*)<\/head>}mi, '<head\1>\2' + style + '</head>'
+    def insert_inner_head(html)
+      html.sub %r{<head(.*?)>(.*)<\/head>}mi, '<head\1>\2' + head + '</head>'
     end
 
     def form
-      @form ||= ERB.new(@form_erb).result(binding)
+      @form ||= ERB.new(load_form_erb).result(binding)
     end
 
-    def style
-      @style ||= File.read(File.expand_path('../views/style.html', __dir__))
+    def head
+      @head ||= ERB.new(load_head_erb).result(binding)
+    end
+
+    def load_head_erb
+      File.read(File.expand_path('../views/head.html.erb', __dir__))
     end
 
     def load_form_erb
-      File.read(File.expand_path('../views/form.erb', __dir__))
+      File.read(File.expand_path('../views/form.html.erb', __dir__))
     end
   end
 end
