@@ -1,6 +1,6 @@
 module UserSwitcher
   def self.initialize!(app)
-    app.middleware.insert(-1, UserSwitcher::SwitcherInserter)
+    app.middleware.insert(-1, UserSwitcher::Middlewares::SwitcherInserter)
   end
 
   class Railtie < ::Rails::Railtie

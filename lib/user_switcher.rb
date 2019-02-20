@@ -1,5 +1,5 @@
 require "user_switcher/config"
-require "user_switcher/rack"
+require "user_switcher/middlewares/switcher_inserter"
 
 if defined?(Rails)
   require "user_switcher/engine"

@@ -1,6 +1,6 @@
 require 'erb'
 
-module UserSwitcher
+module UserSwitcher::Middlewares
   class SwitcherInserter
     def initialize(app, config = nil)
       @app = app
@@ -27,7 +27,7 @@ module UserSwitcher
     end
 
     def form
-      ERB.new(File.read(File.expand_path("form.erb", __dir__))).result(binding)
+      ERB.new(File.read(File.expand_path("../form.erb", __dir__))).result(binding)
     end
   end
 end
