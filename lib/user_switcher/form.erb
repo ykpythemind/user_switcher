@@ -1,5 +1,5 @@
 <form method="post" action="<%= UserSwitcher.config.login_url %>">
-  <select name="user">
+  <select name="user_id">
     <% UserSwitcher.config.users.each do |user| %>
       <option value="<%= user.id %>"><%= "#{user.id}" %></option>
     <% end %>
