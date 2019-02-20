@@ -1,0 +1,16 @@
+<div id="user_switcher_menu">
+  <form method="post" action="<%= login_url %>">
+    <select name="user_id">
+      <% users.each do |user| %>
+        <option value="<%= user.id %>"><%= "#{user.id}" %></option>
+      <% end %>
+    </select>
+
+    <% users.each do |user| %>
+      <input type="hidden" name="users[][id]" value="<%= user.id %>">
+      <input type="hidden" name="users[][password]" value="<%= user.password %>">
+    <% end %>
+
+    <input type="submit" value="login">
+  </form>
+</div>
